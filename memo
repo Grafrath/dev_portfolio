@@ -1,0 +1,12 @@
+배포(deploy)
+내가 만든 파일을 다른사람도 ㅂ볼수 있게하기
+
+githubpages로 배포하기
+
+1. 레파지토리 만들기
+    -public이야함
+2. 첫번째로 읽는 반드시 파일은 index.html
+3. 파일 업로드 후 settings > pages
+4. branch 를 main으로 지정하고 save
+5. githubactions 에서 진행상황 확인
+6. 파일 수정하고 커밋하고 업로드하면 자동반영
