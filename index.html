@@ -2,26 +2,31 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio SPA</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SPA Portfolio</title>
 
-    <!-- 공통 스타일 -->
-    <link rel="stylesheet" href="portfolio_styles.css">
-
-    <!-- scroll animation JS (defer) -->
-    <script src="portfolio_script.js" defer></script>
-
-    <!-- AJAX 페이지 로더 -->
+    <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
 </head>
 
 <body>
 
-    <!-- 로딩될 영역 -->
-    <main id="app">
-        <!-- 처음엔 비어있고 app.js가 portfolio.html을 자동 로드함 -->
-    </main>
+    <nav class="spa-nav">
+        <div class="nav-buttons">
+            <button data-page="home">홈</button>
+            <button data-page="portfolio">포트폴리오</button>
+            <button data-page="contact">연락처</button>
+        </div>
+
+        <!-- Material Switch: input + sibling span 구조 -->
+        <label class="theme-switch" aria-label="토글 다크 모드">
+            <input type="checkbox" id="theme-toggle" />
+            <span class="md-track" role="switch" aria-checked="false"></span>
+        </label>
+    </nav>
+
+    <main id="app" class="layout-container"></main>
 
 </body>
 
