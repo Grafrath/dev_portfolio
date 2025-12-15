@@ -13,3 +13,20 @@ githubpages로 배포하기
 
 https://apidog.com/kr/blog/what-is-shadcn-ui-tutorial/
 리액트 및 shadcn-ui 적용예정
+
+node.js 의 설치는 완벽하게 되었으나 tailwind.config.js가 설치되지 않음.
+npx tailwindcss@latest init -p 재시도 명령을 시행해봤으나 npm 실행안됨
+package.json 파일의 "scripts":부분에 "init:tailwind": "tailwindcss init -p" 명령어를 등록하여
+스크립트를 실행해봄 npm run init:tailwind
+
+결과. tailwindcss 여전히 인식 불가
+
+다음 시도해볼 해결 방안
+1. Node.js 및 NPM 제거
+2. 잔여 파일 정리
+    C:\Users\[사용자 이름]\AppData\Roaming\npm
+    C:\Users\[사용자 이름]\AppData\Roaming\npm-cache
+    C:\Program Files\Nodejs
+    모두 확인 후 삭제
+3. Node.js 재설치
+    설치 시 "Automatically install the necessary tools..." 옵션(Windows용 Chocolatey 등)이 있다면 체크하고 설치를 진행예정.
