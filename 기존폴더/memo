@@ -1,5 +1,5 @@
 배포(deploy)
-내가 만든 파일을 다른사람도 ㅂ볼수 있게하기
+내가 만든 파일을 다른사람도 볼수 있게하기
 
 githubpages로 배포하기
 
@@ -31,3 +31,7 @@ package.json 파일의 "scripts":부분에 "init:tailwind": "tailwindcss init -p
     모두 확인 후 삭제
 3. Node.js 재설치
     설치 시 "Automatically install the necessary tools..." 옵션(Windows용 Chocolatey 등)이 있다면 체크하고 설치를 진행예정.
+
+그 후 진행할 과정
+1. Tailwind CSS를 다시 설치 npm install -D tailwindcss postcss autoprefixer
+2. npm run init:tailwind를 다시 시도
