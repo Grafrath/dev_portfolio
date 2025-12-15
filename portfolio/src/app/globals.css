@@ -120,6 +120,22 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    /* 기존 body의 폰트 설정 적용 */
+    font-family: "Pretendard", "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+    /* 기존 CSS의 라이트 모드 배경 그라데이션 적용 */
+    background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+    color: #2c3e50;
+    /* 기본 텍스트 색상 */
+    transition: background .25s ease, color .25s ease;
+  }
+}
+
+@layer base {
+  .dark {
+    /* 기존 body.dark 스타일 적용 */
+    background: linear-gradient(to right, #1e1e1e, #2b2b2b);
+    color: #e5e5e5;
+    /* 다크 모드 텍스트 색상 */
   }
 }
