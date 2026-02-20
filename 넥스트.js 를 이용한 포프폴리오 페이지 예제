@@ -28,5 +28,13 @@ src/
 4. 테마 및 애니메이션 라이브러리 설치
     npm install next-themes framer-motion
 
+5. Netlify 배포를 위한 라이브러리 설치
+    npm install -D @netlify/plugin-nextjs
+
 기존 소스코드 내용 전환
 
+
+외부 실행방법
+    cd my-portfolio
+    npm install
+    npm run dev

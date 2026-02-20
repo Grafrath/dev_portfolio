@@ -1,5 +1,6 @@
-"use client"
+"use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
@@ -9,7 +10,12 @@ import { cn } from "@/lib/utils";
 
 export default function Navigation() {
     const pathname = usePathname();
-    const { theme, setTheme } = useTheme();
+    const { resolvedTheme, setTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     return (
         <nav className="sticky top-0 z-[120] flex items-center gap-3 px-5 py-3 backdrop-blur-md bg-white/88 dark:bg-black/60 border-bottom border-black/5 dark:border-white/5">
@@ -28,13 +34,16 @@ export default function Navigation() {
                 ))}
             </div>
 
-            {/* 기존 Material Switch를 대체하는 shadcn Switch */}
             <div className="flex items-center gap-2 ml-auto">
-                <Switch
-                    id="theme-toggle"
-                    checked={theme === "dark"}
-                    onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
-                />
+                {mounted ? (
+                    <Switch
+                        id="theme-toggle"
+                        checked={resolvedTheme === "dark"}
+                        onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
+                    />
+                ) : (
+                    <div className="w-[42px] h-[24px]" aria-hidden="true" />
+                )}
             </div>
         </nav>
     );

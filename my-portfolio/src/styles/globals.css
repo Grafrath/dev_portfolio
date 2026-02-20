@@ -82,6 +82,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --bg-from: #f5f7fa;
+  --bg-to: #c3cfe2;
 }
 
 .dark {
@@ -116,21 +118,26 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --bg-from: #0a0b14;
+  --bg-to: #121420;
 }
 
 @layer base {
   body {
-    @apply min-h-screen bg-gradient-to-r from-[#f5f7fa] to-[#c3cfe2] text-[#2c3e50] transition-colors duration-300;
+    @apply min-h-screen transition-colors duration-300;
+    background: linear-gradient(to right, var(--bg-from), var(--bg-to));
+    color: var(--foreground);
   }
 
-  body.dark {
-    @apply from-[#1e1e1e] to-[#2b2b2b] text-[#e5e5e5];
+  .dark body {
+    background: linear-gradient(to bottom right, var(--bg-from), var(--bg-to));
+    color: var(--foreground);
   }
 }
 
 .main-layout {
   @apply max-w-[1100px] mx-auto my-8 p-5 rounded-xl border border-[#d9dbe0] bg-white shadow-lg transition-all duration-300;
-  @apply dark:bg-[#262626] dark:border-[#3a3a3a] dark:shadow-none;
+  @apply dark:bg-[#161b22] dark:border-[#30363d] dark:shadow-2xl;
 }
 
 .section-title {
