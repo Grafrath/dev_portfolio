@@ -1,0 +1,110 @@
+# Site settings
+title: "J.S - 시니어 풀스택 개발자 포트폴리오"
+description: "2014년부터 10년 이상의 실무 경험을 가진 시니어 풀스택 개발자의 포트폴리오. Spring Boot, Java, React, AWS 전문. 교육, 부동산, 커머스, 핀테크, 모빌리티 등 다양한 도메인에서 30여 개 프로젝트 완료."
+url: "https://dlwjdtn535.github.io"
+baseurl: ""
+
+# Author information
+author:
+  name: "J.S"
+  email: "dlwjdtn5624@naver.com"
+  bio: "10년 이상의 실무 경험을 가진 시니어 풀스택 개발자"
+  github: "dlwjdtn535"
+  linkedin: "dlwjdtn535"
+  twitter: "dlwjdtn535"
+
+# SEO settings
+lang: ko_KR
+locale: ko_KR
+timezone: Asia/Seoul
+
+# Social media
+social:
+  name: J.S LEE
+  links:
+    - https://github.com/dlwjdtn535
+    - https://linkedin.com/in/dlwjdtn535
+    - https://twitter.com/dlwjdtn535
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+highlighter: rouge
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Feed settings
+feed:
+  excerpt_only: true
+
+# Pagination
+paginate: 10
+paginate_path: "/page:num/"
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - pnpm-lock.yaml
+  - src/
+  - vite.config.ts
+  - tsconfig.json
+  - .prettierrc.js
+  - .prettierignore
+  - .eslintrc.js
+  - .vscode/
+  - tailwind.config.js
+  - postcss.config.js
+  - index-dev.html
+  - .git/
+  - .github/
+  - vendor/
+
+# Include files that start with underscore and important files
+include:
+  - _layouts
+  - .htaccess
+  - robots.txt
+  - _pages
+  - js/react-build
+  - public
+  - aa2451c6c6c64105be9aeb2ae7e541b8.txt
+
+# SEO tag settings
+tag_page_layout: tag_page
+tag_page_dir: tag
+
+# Additional settings
+future: false
+show_drafts: false
+unpublished: false
+
+# Copy Vite build assets
+defaults:
+  - scope:
+      path: "js/react-build"
+    values:
+      layout: null
+      sitemap: false
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+      sitemap: true
+
+# Static file serving
+static_files:
+  - "*.woff"
+  - "*.woff2"
+  - "*.ttf"
+  - "*.otf"
