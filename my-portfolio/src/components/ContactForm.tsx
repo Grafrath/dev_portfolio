@@ -136,8 +136,8 @@ const ContactForm: React.FC<ContactFormProps> = ({
         </svg>
       ),
       title: '이메일',
-      value: 'dlwjdtn5624@naver.com',
-      link: 'mailto:dlwjdtn5624@naver.com',
+      value: 'iingtto951@gmail.com',
+      link: 'mailto:iingtto951@gmail.com',
     },
     {
       icon: (
@@ -147,7 +147,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
       ),
       title: 'GitHub',
       value: 'github.com/dlwjdtn535',
-      link: 'https://github.com/dlwjdtn535',
+      link: 'https://github.com/Grafrath',
     },
     {
       icon: (
@@ -166,7 +166,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         </svg>
       ),
       title: '경력',
-      value: '10년+ 실무 경험',
+      value: '항상 배울 준비가 된 신입',
       link: '#',
     },
   ];
@@ -213,7 +213,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 연락처 정보
               </h3>
               <p className='mb-8 text-lg leading-relaxed text-gray-700'>
-                프로젝트 문의, 협업 제안, 또는 단순한 인사말까지 모든 메시지를
+                프로젝트 문의, 입사 제안, 또는 단순한 인사말까지 모든 메시지를
                 환영합니다. 보통 24시간 이내에 응답드립니다.
               </p>
             </div>
