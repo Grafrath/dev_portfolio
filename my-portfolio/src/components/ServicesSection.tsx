@@ -76,19 +76,20 @@ export const ServicesSection: React.FC = () => {
   };
 
   const addProject = () => {
-    setProjectList([...projectList, {
-      id: Date.now(),
+    const newProject = {
+      id: String(Date.now()), // 숫자를 문자열로 변환 (Date.now() -> String)
       title: "새로운 프로젝트",
       period: "2024.04 - 현재",
       description: "현재는 시연을 위해 인메모리(In-memory)로 관리 모드를 구현했습니다.",
       techStack: ["Stack", "Added"],
       link: "#"
-    }]);
+    };
+    setProjectList([...projectList, newProject]);
   };
 
-  const deleteProject = (id: number) => {
-    setProjectList(projectList.filter(p => p.id !== id));
-  };
+const deleteProject = (id: string) => { // number에서 string으로 변경
+  setProjectList(projectList.filter(p => p.id !== id));
+};
 
   return (
     <section id="services" className="py-32 bg-gray-50 dark:bg-gray-900 relative">
