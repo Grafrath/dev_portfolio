@@ -146,7 +146,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         </svg>
       ),
       title: 'GitHub',
-      value: 'github.com/dlwjdtn535',
+      value: 'github.com/Grafrath',
       link: 'https://github.com/Grafrath',
     },
     {
@@ -194,10 +194,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
             Get In Touch
           </h2>
           <div className='mx-auto mb-8 h-1 w-24 rounded-full bg-gradient-to-r from-blue-400 to-purple-400' />
-          <p className='mx-auto max-w-3xl text-xl leading-relaxed text-gray-700'>
-            새로운 프로젝트나 협업에 관심이 있으시다면 언제든 연락주세요.
+          <p className='mx-auto max-w-3xl text-xl leading-relaxed text-gray-700 dark:text-gray-400'>
+            새로운 기술적 도전과 협업을 통해 함께 성장할 기회를 기다립니다.
             <br />
-            <span className='text-blue-600'>함께 멋진 것을 만들어봅시다!</span>
+            <span className='text-blue-600 font-bold'>준비된 열정으로 팀의 내일에 기여하고 싶습니다!</span>
           </p>
         </AnimatedSection>
 
@@ -212,9 +212,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
               <h3 className='mb-6 text-3xl font-bold text-gray-900'>
                 연락처 정보
               </h3>
-              <p className='mb-8 text-lg leading-relaxed text-gray-700'>
-                프로젝트 문의, 입사 제안, 또는 단순한 인사말까지 모든 메시지를
-                환영합니다. 보통 24시간 이내에 응답드립니다.
+              <p className='mb-8 text-lg leading-relaxed text-gray-700 dark:text-gray-400'>
+                성장할 기회를 주시는 피드백은 저에게 큰 원동력이 됩니다.
+                <br />
+                남겨주시는 모든 메시지는 확인하는 대로 <span className='font-semibold text-blue-600'>정성껏 답변드리겠습니다.</span>
               </p>
             </div>
 
