@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Dev Portfolio",
-  description: "템플릿 기반 리뉴얼 포트폴리오",
+  description: "리뉴얼 포트폴리오",
 };
 
 export default function RootLayout({

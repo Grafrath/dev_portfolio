@@ -41,31 +41,3 @@ src/
 
 https://grafrath.netlify.app/
 
-<AnimatedSection animation="fadeInUp" delay={400}>
-            <h1 className="text-[1.85rem] xs:text-4xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight leading-tight break-keep">
-              <span className="inline">안녕하세요, </span>
-              <span className="whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-                {PROFILE.name}
-              </span>
-              <span className="inline">입니다.</span>
-            </h1>
-          </AnimatedSection>
-
-{/* 기술 스택 섹션 */}
-          <AnimatedSection animation="fadeIn" delay={1000} className="mt-20">
-            <p className="text-sm font-semibold text-gray-400 dark:text-gray-500 mb-8 tracking-widest uppercase">
-              Tech Stack
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 md:gap-8 opacity-90">
-              {techStack.map((tech, index) => (
-                <div key={index} className="flex flex-col items-center gap-3 group cursor-pointer">
-                  <div className={`p-3 md:p-5 rounded-2xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl`}>
-                    <tech.icon className={`w-8 h-8 md:w-10 md:h-10 text-gray-400 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${tech.color} transition-all duration-300`} />
-                  </div>
-                  <span className="text-xs font-bold text-gray-500 dark:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 uppercase tracking-tighter">
-                    {tech.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
