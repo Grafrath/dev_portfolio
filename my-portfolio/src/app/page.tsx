@@ -4,6 +4,7 @@ import React from 'react';
 import { ScrollProgress } from '@/components/ScrollProgress';
 import { Header } from '@/components/Header';
 import { About } from '@/components/About';
+import { SelfIntroduction } from '@/components/SelfIntroduction';
 import { ServicesSection } from '@/components/ServicesSection';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
@@ -17,16 +18,19 @@ export default function HomePage() {
       {/* 2. 메인 헤더 영역 (이름 및 기술 스택) */}
       <Header />
 
-      {/* 3. 어바웃 영역 (상세 자기소개) */}
+      {/* 3. 어바웃 영역 (상세 이력) */}
       <About />
 
-      {/* 4. 프로젝트 전시 영역 */}
+      {/* 4. My Story 영역 (자기소개) */}
+      <SelfIntroduction />
+
+      {/* 5. 프로젝트 전시 영역 */}
       <ServicesSection />
 
-      {/* 5. 문의하기 폼 영역 */}
+      {/* 6. 문의하기 폼 영역 */}
       <ContactForm />
 
-      {/* 6. 푸터 영역 */}
+      {/* 7. 푸터 영역 */}
       <Footer />
     </main>
   );

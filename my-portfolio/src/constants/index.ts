@@ -4,7 +4,7 @@ export interface Project {
     title: string;
     period: string;
     description: string;
-    techStack?: string[]; // 기존 데이터엔 없지만 확장을 위해 추가
+    techStack?: string[];
     link?: string;
 }
 
@@ -15,20 +15,59 @@ export interface ContactItem {
     type: 'email' | 'link';
 }
 
+// 새롭게 추가된 이력사항 타입
+export interface ProfileDetail {
+    category: string;
+    content: string;
+    period?: string; // 기간은 없는 항목(주소 등)이 있을 수 있으므로 선택적(?)으로 처리
+}
+
+// 목차별 자기소개 타입 정의
+export interface IntroItem {
+    title: string;
+    content: string[];
+}
+
 // 2. 실제 데이터
 export const PROFILE = {
     name: "김이박 라트다",
     role: "Front-End Developer",
-    summary: "사용자 경험을 디자인하는 개발자",
+    summary: "끊임없는 배움으로 정답을 찾아가는 개발자",
     description: [
-        "아이디어를 화면 위에 구현하는 과정에 큰 흥미를 느낍니다.",
-        "시맨틱 HTML과 구조적인 CSS 작성을 기반으로 깔끔하고 일관성 있는 UI를 만드는 데 집중하고 있습니다.",
-        "최근에는 JavaScript 기반의 동적 웹 페이지, SPA 방식의 라우팅, CSS 애니메이션, 다크 모드 UI 구현 등 프론트엔드 인터랙션 분야를 꾸준히 학습하고 있습니다.",
-        "현재는 데이터베이스(DBMS) 기초와 Python도 함께 공부하며 더 넓은 영역에서 웹 서비스 제작 능력을 확장하고 있습니다."
-    ],
-    image: "/profil.png", // public 폴더에 위치시켜야 합니다.
+        { category: "학력", content: "ㅇㅇ대학교 컴퓨터공학과 졸업", period: "2015.03 - 2021.02" },
+        { category: "경력", content: "ㅇㅇ컴퍼니 프론트엔드 개발팀", period: "2021.03 - 2024.12" },
+        { category: "주소", content: "인천광역시 ㅇㅇ구 ㅇㅇ동" } // 기간이 필요 없는 경우 생략 가능
+    ] as ProfileDetail[],
+    selfIntroduction: [
+        {
+            title: "성장과정",
+            content: [
+                "어린 시절부터 새로운 기술을 접하고 원리를 파악하는 것에 즐거움을 느꼈습니다. 이러한 호기심은 자연스럽게 컴퓨터 프로그래밍으로 이어졌고, 대학 시절 다양한 프로젝트를 통해 논리적인 문제 해결 능력을 키웠습니다.",
+                "특히 협업 프로젝트에서 프론트엔드 개발을 맡으며 사용자에게 직접적인 가치를 전달하는 화면 구현의 매력에 깊이 빠지게 되었습니다."
+            ]
+        },
+        {
+            title: "성격의 장단점",
+            content: [
+                "저의 강점은 끈기 있게 문제를 파고드는 집중력입니다. 복잡한 버그나 처음 접하는 라이브러리 앞에서도 포기하지 않고 끝내 최적의 해결책을 찾아냅니다.",
+                "반면 완벽주의적인 성향으로 인해 개발 속도가 더뎌질 때가 있으나, 현재는 우선순위를 정하고 점진적으로 완성도를 높이는 방식을 통해 이를 보완하고 있습니다."
+            ]
+        },
+        {
+            title: "지원동기",
+            content: [
+                "사용자의 일상을 편리하게 바꾸는 서비스를 만들고 싶다는 열망으로 지원하게 되었습니다. 귀사의 혁신적인 기술력과 사용자를 최우선으로 생각하는 가치관이 저의 지향점과 일치한다고 확신합니다."
+            ]
+        },
+        {
+            title: "입사후 포부",
+            content: [
+                "입사 후에는 빠르게 실무 환경에 적응하여 팀의 생산성을 높이는 일원이 되겠습니다. 기술적인 성장은 물론, 비즈니스 목표를 이해하고 동료들과 활발히 소통하며 함께 성장하는 개발자가 되겠습니다."
+            ]
+        }
+    ] as IntroItem[],
+    image: "/profil.png",
 };
-
 export const PROJECTS: Project[] = [
     {
         id: "portfolio-website",
@@ -71,11 +110,4 @@ export const CONTACTS: ContactItem[] = [
         link: "https://grafrath.github.io/dev_portfolio/#",
         type: "link"
     }
-];
-
-// 내비게이션 메뉴 정보
-export const NAV_ITEMS = [
-    { label: "홈", href: "/" },
-    { label: "포트폴리오", href: "/portfolio" },
-    { label: "연락처", href: "/contact" },
 ];
