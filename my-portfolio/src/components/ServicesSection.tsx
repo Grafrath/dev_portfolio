@@ -99,7 +99,7 @@ export const ServicesSection: React.FC = () => {
           {projectList.map((project, index) => (
             <AnimatedSection key={project.id} animation="fadeInUp" delay={index * 100}>
               {/* 1. 카드의 전체 높이를 고정 */}
-              <div className="card h-[420px] flex flex-col pt-8 pb-6 pl-8 pr-4 group relative bg-white dark:bg-gray-800 shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out rounded-2xl overflow-hidden">
+              <div className="card h-[420px] flex flex-col pt-8 pb-6 pl-8 pr-4 group relative bg-white dark:bg-gray-800 shadow-md hover:shadow-2xl hover:scale-[1.01] transition-all duration-300 ease-in-out rounded-2xl overflow-hidden">
 
                 {/* 관리자 삭제 버튼 (카드 내부에서 스크롤과 무관하게 우측 상단 고정) */}
                 {isLoggedIn && (

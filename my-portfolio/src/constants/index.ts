@@ -76,20 +76,20 @@ export const PROJECTS: Project[] = [
     {
         id: "portfolio-website",
         title: "포트폴리오 웹사이트",
-        period: "2025.10 - 진행중",
-        description: "HTML/CSS/JS로 SPA 포트폴리오를 만들었습니다.",
-        learnings: "다크모드 구현 시 상태 관리의 중요성을 깨달았으며, 사용자 경험을 고려한 UI 배치에 대해 깊이 고민해 볼 수 있었습니다.", // 새롭게 추가될 부분!
+        period: "2025.10 - 2026.04",
+        description: "React와 Next.js를 기반으로 개인 포트폴리오 웹사이트를 자체 구축함. 외부 로그인 기능을 성공적으로 연동하여 사용자 인증 프로세스를 구현함.",
+        learnings: "기획 단계부터 프론트엔드 UI 개발, 로그인 연동, 최종 배포까지 웹 서비스 개발의 전체 사이클을 1인 프로젝트로 완수함. 이를 통해 웹 사이트가 처음부터 끝까지 만들어지는 구조와 흐름에 대한 실무적인 이해도를 크게 향상시킴.",
         techStack: ["HTML", "CSS", "JavaScript"],
-        githubUrl: "https://github.com/Grafrath"
+        githubUrl: "https://github.com/Grafrath/dev_portfolio"
     },
     {
-        id: "coming-soon",
+        id: "coming-soon1",
         title: "준비 중",
         period: "예정",
         description: "새로운 프로젝트를 곧 추가할 예정입니다.",
     },
     {
-        id: "coming-soon",
+        id: "coming-soon2",
         title: "준비 중",
         period: "예정",
         description: "새로운 프로젝트를 곧 추가할 예정입니다.",
