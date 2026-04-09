@@ -35,6 +35,7 @@ export const PROFILE = {
     summary: "끊임없는 배움으로 정답을 찾아가는 개발자",
     description: [
         { category: "학력", content: "ㅇㅇ대학교 컴퓨터공학과 졸업", period: "2015.03 - 2021.02" },
+        { category: "경력", content: "IT컴퍼니 JAVA&Python 빅데이터 분석 AI플랫폼 개발 수료", period: "2025.10 - 2026.04" },
         { category: "경력", content: "ㅇㅇ컴퍼니 프론트엔드 개발팀", period: "2021.03 - 2024.12" },
         { category: "주소", content: "인천광역시 미추홀구 문학동" }
     ] as ProfileDetail[],
