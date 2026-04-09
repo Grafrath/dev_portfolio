@@ -1,10 +1,26 @@
 "use client";
-import React from 'react';
+import React, { useMemo } from 'react';
 import Image from 'next/image';
 import { PROFILE } from '@/constants';
 import { AnimatedSection } from './AnimatedSection';
 
 export const About: React.FC = () => {
+  // 1. 데이터를 카테고리별로 묶어주는 로직 (배열 등장 순서 유지)
+  const groupedDescription = useMemo(() => {
+    return PROFILE.description.reduce((acc, curr) => {
+      const existingGroup = acc.find(group => group.category === curr.category);
+      if (existingGroup) {
+        existingGroup.items.push({ content: curr.content, period: curr.period });
+      } else {
+        acc.push({
+          category: curr.category,
+          items: [{ content: curr.content, period: curr.period }]
+        });
+      }
+      return acc;
+    }, [] as { category: string; items: { content: string; period?: string }[] }[]);
+  }, []);
+
   return (
     <section id="about" className="py-32 bg-white dark:bg-[#161b22] relative overflow-hidden">
       <div className="container mx-auto px-4">
@@ -31,35 +47,42 @@ export const About: React.FC = () => {
           {/* 오른쪽: 이력 텍스트 */}
           <AnimatedSection animation="fadeInRight" delay={200} className="space-y-6">
             <div className="card bg-white/50 dark:bg-gray-800/50 backdrop-blur-md border-none shadow-lg">
-              {/* 제목 수정 */}
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 border-b pb-4 dark:border-gray-700">
                 이력 사항
               </h3>
-              <div className="space-y-4">
-                {/* 객체 배열에 맞게 렌더링 로직 수정 */}
-                {PROFILE.description.map((item, index) => (
-                  <div key={index} className="flex items-start text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                    <span className="mr-3 mt-1.5 text-blue-500 text-sm shrink-0">✦</span>
 
-                    {/* justify-between으로 양끝 정렬 */}
-                    <div className="flex-1 flex justify-between items-start gap-4">
-                      <div>
-                        <span className="font-bold text-gray-800 dark:text-gray-200 mr-3 inline-block min-w-[3rem]">
-                          {item.category}
-                        </span>
-                        <span>{item.content}</span>
-                      </div>
+              {/* 2. 카테고리별 그룹화된 데이터 렌더링 */}
+              <div className="space-y-8">
+                {groupedDescription.map((group, index) => (
+                  <div key={index} className="space-y-3">
 
-                      {/* 기간(period)이 있는 경우에만 렌더링되며 우측 끝에 배치됨 */}
-                      {item.period && (
-                        <span className="text-sm text-gray-500 dark:text-gray-400 shrink-0 mt-1 text-right">
-                          {item.period}
-                        </span>
-                      )}
+                    {/* 카테고리 제목 (아이콘 포함) */}
+                    <h4 className="text-lg font-bold text-gray-800 dark:text-gray-200 flex items-center">
+                      <span className="mr-2 text-blue-500 text-sm shrink-0">✦</span>
+                      {group.category}
+                    </h4>
+
+                    {/* 세부 항목 리스트 (내용 - 기간 양끝 정렬) */}
+                    <div className="space-y-3 pl-5">
+                      {group.items.map((item, itemIndex) => (
+                        <div key={itemIndex} className="flex justify-between items-start gap-4 w-full">
+                          <span className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                            {item.content}
+                          </span>
+
+                          {item.period && (
+                            <span className="text-sm text-gray-500 dark:text-gray-400 shrink-0 mt-1.5 text-right whitespace-nowrap">
+                              {item.period}
+                            </span>
+                          )}
+                        </div>
+                      ))}
                     </div>
+
                   </div>
                 ))}
               </div>
+
             </div>
           </AnimatedSection>
         </div>

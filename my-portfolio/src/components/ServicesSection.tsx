@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { PROJECTS } from '@/constants';
 import { AnimatedSection } from './AnimatedSection';
-import { FaLock, FaUnlock, FaPlus, FaTimes, FaUserPlus } from 'react-icons/fa';
+import { FaLock, FaUnlock, FaPlus, FaTimes, FaUserPlus, FaGithub } from 'react-icons/fa';
 
 export const ServicesSection: React.FC = () => {
   const [projectList, setProjectList] = useState(PROJECTS);
@@ -10,7 +10,6 @@ export const ServicesSection: React.FC = () => {
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [isJoinMode, setIsJoinMode] = useState(false);
 
-  // 1. 초기값에 데모 계정 정보를 미리 넣어둡니다.
   const [authData, setAuthData] = useState({
     email: 'admin@demo.com',
     password: '1234',
@@ -41,25 +40,20 @@ export const ServicesSection: React.FC = () => {
 
   const handleJoin = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // 회원가입 모드로 전환할 때 입력창을 비워줍니다.
     if (!isJoinMode) {
       setIsJoinMode(true);
       setAuthData({ email: '', password: '', nickname: '' });
       return;
     }
-
     try {
       const response = await fetch('https://port-0-b-portfolio-mmsil7aefe44530e.sel3.cloudtype.app/api/users/join', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(authData)
       });
-
       if (response.ok) {
         alert('회원가입 성공! 이제 접속하기 버튼을 눌러 로그인해 주세요.');
         setIsJoinMode(false);
-        // 로그인 모드로 돌아올 때 다시 데모 계정 세팅
         setAuthData({ email: 'admin@demo.com', password: '1234', nickname: '' });
       } else {
         const errorData = await response.json();
@@ -77,19 +71,20 @@ export const ServicesSection: React.FC = () => {
 
   const addProject = () => {
     const newProject = {
-      id: String(Date.now()), // 숫자를 문자열로 변환 (Date.now() -> String)
+      id: String(Date.now()),
       title: "새로운 프로젝트",
       period: "2024.04 - 현재",
-      description: "현재는 시연을 위해 인메모리(In-memory)로 관리 모드를 구현했습니다.",
-      techStack: ["Stack", "Added"],
-      link: "#"
+      description: "새롭게 추가된 프로젝트의 설명입니다.",
+      learnings: "이곳에 기획 의도나 프로젝트를 통해 배운 점을 작성할 수 있습니다. 내용이 길어지면 카드 내부에 스크롤이 생성됩니다.",
+      techStack: ["React", "Tailwind CSS"],
+      githubUrl: "https://github.com/Grafrath"
     };
     setProjectList([...projectList, newProject]);
   };
 
-const deleteProject = (id: string) => { // number에서 string으로 변경
-  setProjectList(projectList.filter(p => p.id !== id));
-};
+  const deleteProject = (id: string) => {
+    setProjectList(projectList.filter(p => p.id !== id));
+  };
 
   return (
     <section id="services" className="py-32 bg-gray-50 dark:bg-gray-900 relative">
@@ -100,36 +95,80 @@ const deleteProject = (id: string) => { // number에서 string으로 변경
           <p className="section-description">지금까지 진행해 온 프로젝트와 학습 결과물입니다.</p>
         </AnimatedSection>
 
-        {/* 프로젝트 그리드 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
           {projectList.map((project, index) => (
             <AnimatedSection key={project.id} animation="fadeInUp" delay={index * 100}>
-              <div className="card h-full flex flex-col group relative border-t-4 border-t-blue-500 hover:border-t-purple-500 transition-all">
+              {/* 1. 카드의 전체 높이를 고정 */}
+              <div className="card h-[420px] flex flex-col pt-8 pb-6 pl-8 pr-4 group relative bg-white dark:bg-gray-800 shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out rounded-2xl overflow-hidden">
+
+                {/* 관리자 삭제 버튼 (카드 내부에서 스크롤과 무관하게 우측 상단 고정) */}
                 {isLoggedIn && (
-                  <button onClick={(e) => { e.stopPropagation(); deleteProject(project.id); }} className="absolute top-3 right-3 text-gray-400 hover:text-red-500 transition-colors z-20 p-1">
-                    <FaTimes size={20} />
+                  <button onClick={(e) => { e.stopPropagation(); deleteProject(project.id); }} className="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors z-20 p-2 bg-white/80 dark:bg-gray-800/80 rounded-full shadow-sm">
+                    <FaTimes size={16} />
                   </button>
                 )}
-                <div className="p-2 flex-1">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-500 transition-colors">{project.title}</h3>
-                    <span className="text-xs font-medium text-gray-500 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">{project.period}</span>
+
+                {/* 2. 내부 텍스트 영역: 내용이 420px을 넘어가면 세로 스크롤(overflow-y-auto) 생성 */}
+                <div className="flex-1 flex flex-col overflow-y-auto pr-4 custom-scrollbar">
+
+                  {/* 상단: 제목, 깃허브 링크, 기간 */}
+                  <div className="flex justify-between items-start mb-4 gap-4">
+                    <div className="flex items-center gap-3 flex-wrap">
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-500 transition-colors">
+                        {project.title}
+                      </h3>
+                      {project.githubUrl && (
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" title="GitHub Repository">
+                          <FaGithub size={22} />
+                        </a>
+                      )}
+                    </div>
+                    <span className={`text-sm font-medium text-gray-500 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full whitespace-nowrap shrink-0 ${isLoggedIn ? 'mr-10' : ''}`}>
+                      {project.period}
+                    </span>
                   </div>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">{project.description}</p>
+
+                  {/* 중단: 프로젝트 기본 설명 */}
+                  <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  {/* 중단: 배운 점 / 기획 의도 */}
+                  {project.learnings && (
+                    <div className="mb-6 p-5 bg-blue-50/50 dark:bg-blue-900/10 rounded-xl border border-blue-100 dark:border-blue-900/30 text-gray-700 dark:text-gray-300 leading-relaxed">
+                      <span className="block font-bold text-blue-600 dark:text-blue-400 mb-2 flex items-center text-sm">
+                        <span className="mr-2">💡</span> 기획 의도 및 배운 점
+                      </span>
+                      {project.learnings}
+                    </div>
+                  )}
+
+                  {/* 하단: 기술 스택 뱃지 (mt-auto로 인해 글이 짧으면 맨 아래에, 길면 내용 끝에 붙음) */}
+                  <div className="mt-auto pt-6 border-t border-gray-100 dark:border-gray-700 flex flex-wrap gap-2">
+                    {project.techStack && project.techStack.map((tech, idx) => (
+                      <span key={idx} className="px-3 py-1.5 text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-lg">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
+
               </div>
             </AnimatedSection>
           ))}
+
+          {/* 3. 새 프로젝트 추가 버튼 높이도 420px로 고정하여 통일감 부여 */}
           {isLoggedIn && (
-            <div onClick={addProject} className="border-4 border-dashed border-gray-200 dark:border-gray-700 rounded-2xl flex flex-col items-center justify-center p-12 hover:border-blue-500 hover:bg-blue-50/30 transition-all cursor-pointer group">
+            <div onClick={addProject} className="h-[420px] border-4 border-dashed border-gray-200 dark:border-gray-700 rounded-2xl flex flex-col items-center justify-center p-12 hover:border-blue-500 hover:bg-blue-50/30 transition-all cursor-pointer group">
               <FaPlus className="text-gray-300 group-hover:text-blue-500 mb-4" size={40} />
               <span className="text-gray-400 group-hover:text-blue-500 font-bold">새 프로젝트 추가</span>
             </div>
           )}
         </div>
 
-        {/* 인증 섹션 */}
+        {/* 인증 섹션 (수정 없음) */}
         <div className="flex flex-col items-center justify-center mt-10 space-y-6">
+          {/* ... 기존 인증 코드 동일 ... */}
           {!isLoggedIn ? (
             <button onClick={() => { setShowLoginForm(!showLoginForm); setIsJoinMode(false); }} className="flex items-center gap-3 px-10 py-4 bg-white dark:bg-gray-800 border-2 border-blue-500 text-blue-600 font-bold rounded-full hover:bg-blue-500 hover:text-white transition-all shadow-lg">
               <FaLock /> Admin Mode
@@ -158,7 +197,6 @@ const deleteProject = (id: string) => { // number에서 string으로 변경
                   <button type="button" onClick={handleLogin} className={`flex-1 py-4 rounded-xl font-bold transition-all shadow-lg ${!isJoinMode ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-gray-100 dark:bg-gray-700 text-gray-500'}`}>접속하기</button>
                   <button type="button" onClick={handleJoin} className={`flex-1 py-4 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2 ${isJoinMode ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-white dark:bg-gray-800 border-2 border-blue-500 text-blue-600 hover:bg-blue-50'}`}><FaUserPlus size={14} /> 회원가입</button>
                 </div>
-                <p className="text-center text-xs text-gray-400 mt-4">{isJoinMode ? '이미 계정이 있으신가요? 접속하기를 누르세요.' : '처음이신가요? 회원가입을 눌러 계정을 만드세요.'}</p>
               </form>
             </div>
           )}
