@@ -36,7 +36,7 @@ export const PROFILE = {
     description: [
         { category: "학력", content: "ㅇㅇ대학교 컴퓨터공학과 졸업", period: "2015.03 - 2021.02" },
         { category: "경력", content: "ㅇㅇ컴퍼니 프론트엔드 개발팀", period: "2021.03 - 2024.12" },
-        { category: "주소", content: "인천광역시 ㅇㅇ구 ㅇㅇ동" } // 기간이 필요 없는 경우 생략 가능
+        { category: "주소", content: "인천광역시 미추홀구 문학동" }
     ] as ProfileDetail[],
     selfIntroduction: [
         {
