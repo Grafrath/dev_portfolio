@@ -75,18 +75,21 @@ export const PROFILE = {
 export const PROJECTS: Project[] = [
     {
         id: "portfolio-website",
-        title: "포트폴리오 웹사이트",
+        title: "개인 포트폴리오 웹사이트 자체 구축",
         period: "2025.10 - 2026.04",
         description: "React와 Next.js를 기반으로 개인 포트폴리오 웹사이트를 자체 구축함. 외부 로그인 기능을 성공적으로 연동하여 사용자 인증 프로세스를 구현함.",
-        learnings: "기획 단계부터 프론트엔드 UI 개발, 로그인 연동, 최종 배포까지 웹 서비스 개발의 전체 사이클을 1인 프로젝트로 완수함. 이를 통해 웹 사이트가 처음부터 끝까지 만들어지는 구조와 흐름에 대한 실무적인 이해도를 크게 향상시킴.",
-        techStack: ["HTML", "CSS", "JavaScript"],
+        learnings: "기획 단계부터 프론트엔드 UI 개발, 백엔드 연동, 최종 배포까지 웹 서비스 개발의 전체 사이클을 1인 프로젝트로 완수함. 이를 통해 웹 사이트가 처음부터 끝까지 만들어지는 구조와 흐름에 대한 실무적인 이해도를 크게 향상시킴.",
+        techStack: ['React', 'Next.js', 'Tailwind', 'CSS', 'TypeScript'],
         githubUrl: "https://github.com/Grafrath/dev_portfolio"
     },
     {
-        id: "coming-soon1",
-        title: "준비 중",
-        period: "예정",
-        description: "새로운 프로젝트를 곧 추가할 예정입니다.",
+        id: "portfolio-backend",
+        title: "포트폴리오 백엔드 인증 및 메일링 API 서버",
+        period: "2026.02 - 2026.04",
+        description: "포트폴리오 웹사이트와 연동되는 백엔드 API 서버를 독립적으로 구축함. 자체적인 로그인 인증 로직과 Google SMTP를 활용한 문의 메일 전송 기능을 구현하고, Cloudtype에 배포하여 서비스 환경을 완성함.",
+        learnings: "Spring Security와 JJWT를 활용해 토큰 기반의 로그인 인증 아키텍처를 직접 설계함. JPA를 기반으로 H2 및 PostgreSQL을 연동해 데이터를 관리했으며, 민감한 환경변수(앱 비밀번호 등)를 YAML로 안전하게 분리 관리하는 백엔드 인프라 운영 역량을 키움. (소셜 로그인 등 확장성 고려)",
+        techStack: ['Java 21', 'Spring Boot 3', 'Spring Security', 'JJWT', 'Spring Data JPA', 'H2', 'Google SMTP', 'Cloudtype'],
+        githubUrl: "https://github.com/Grafrath/B_portfolio"
     },
     {
         id: "coming-soon2",
