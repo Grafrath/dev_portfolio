@@ -92,10 +92,40 @@ export const PROJECTS: Project[] = [
         githubUrl: "https://github.com/Grafrath/B_portfolio"
     },
     {
-        id: "coming-soon2",
+        id: "python-tetris-game",
+        title: "파이썬 기반 테트리스(Tetris) 미니게임 개발",
+        period: "2025.12.20 - 2025.12.31",
+        description: "Pygame을 활용하여 클래식 테트리스 게임을 완벽하게 재현함. 7-Bag 블록 생성 알고리즘, 하드/소프트 드롭, 그리고 고난이도 기술인 T-Spin 로직 등 실제 게임과 동일한 조작감과 규칙을 세밀하게 구현함.",
+        learnings: "파이썬 무한 루프(Game Loop) 환경에서 프레임 단위의 이벤트 처리와 화면 렌더링을 다루는 방법을 익힘. 특히 테트로미노의 회전 상태와 맵 격자(Grid) 간의 충돌 판정, T-Spin 성립 조건을 판별하는 복잡한 알고리즘을 직접 설계하며 프로그래밍적 논리력과 문제 해결 능력을 크게 향상시킴.",
+        techStack: ['Python', 'Pygame'],
+        githubUrl: "https://github.com/Grafrath/mini-game"
+    },
+    {
+        id: "ai-diet-app",
+        title: "AI 기반 맞춤형 식단 관리 어플리케이션 (팀 프로젝트)",
+        period: "2026.01 - 2026.02",
+        description: "Streamlit과 Python을 활용하여 사용자 맞춤형 식단 추천 및 소셜 로그인 기능을 제공하는 웹 어플리케이션을 구축함. 공공데이터 API와 Gemini API를 연동하여 정확한 영양 정보와 대화형 AI 챗봇 기능을 구현함.",
+        learnings: "[데이터 정제 및 AI 연동 담당] Pandas를 활용해 방대한 공공데이터 속 중복된 음식 데이터를 통합하고 영양소 수치를 대표값으로 전처리하여 데이터의 품질을 높임. Gemini API를 서비스에 직접 통합하며 데이터 파이프라인 구축부터 AI 모델 서빙까지의 과정을 심도 있게 경험함.",
+        techStack: ['Python', 'Streamlit', 'Pandas', 'Gemini API', 'Public Data API'],
+        githubUrl: "https://github.com/Grafrath/teampj"
+    },
+    {
+        id: "ecommerce-platform",
+        title: "DDD 기반 이커머스 플랫폼 개발 (팀 프로젝트)",
+        period: "2026.02 - 2026.03",
+        description: "Next.js와 Spring Boot를 활용하여 도메인 주도 설계(DDD)가 적용된 이커머스 플랫폼을 구축함. 프로젝트의 전체 기획 및 구조 설계를 주도하였으며, 프론트엔드 영역 전체와 백엔드 코어 및 공통 모듈 구현을 전담함.",
+        learnings: "[기획, 프론트엔드 전체, 백엔드 코어 담당] 향후 MSA(마이크로서비스 아키텍처)로의 확장을 고려해 각 도메인 간 결합도를 낮추는 약한 의존성 구조를 설계함. Git 브랜치 전략을 활용해 모듈을 분리하고, 도메인 간 이벤트 처리 및 트랜잭션 분리를 깊이 있게 고민하며 시스템 아키텍처 설계 역량을 크게 향상시킴.",
+        techStack: ['Next.js', 'Spring Boot', "Spring Security", "Redis", 'DDD', 'MSA Architecture'],
+        githubUrl: "https://github.com/Grafrath/Ecommerce_Project"
+    },
+    {
+        id: "coming-soon",
         title: "준비 중",
         period: "예정",
         description: "새로운 프로젝트를 곧 추가할 예정입니다.",
+        learnings: "",
+        techStack: [],
+        githubUrl: ""
     }
 ];
 
