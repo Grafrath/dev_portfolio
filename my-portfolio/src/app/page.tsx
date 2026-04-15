@@ -1,6 +1,3 @@
-import React from 'react';
-
-// 새로 넣은 템플릿 컴포넌트들 불러오기
 import { ScrollProgress } from '@/components/ScrollProgress';
 import { Header } from '@/components/Header';
 import { About } from '@/components/About';

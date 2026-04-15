@@ -101,7 +101,7 @@ export const ServicesSection: React.FC = () => {
               {/* 1. 카드의 전체 높이를 고정 */}
               <div className="card h-[420px] flex flex-col pt-8 pb-6 pl-8 pr-4 group relative bg-white dark:bg-gray-800 shadow-md hover:shadow-2xl hover:scale-[1.01] transition-all duration-300 ease-in-out rounded-2xl overflow-hidden">
 
-                {/* 관리자 삭제 버튼 (카드 내부에서 스크롤과 무관하게 우측 상단 고정) */}
+                {/* 관리자 삭제 버튼 우측 상단 고정 */}
                 {isLoggedIn && (
                   <button onClick={(e) => { e.stopPropagation(); deleteProject(project.id); }} className="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors z-20 p-2 bg-white/80 dark:bg-gray-800/80 rounded-full shadow-sm">
                     <FaTimes size={16} />
@@ -157,7 +157,7 @@ export const ServicesSection: React.FC = () => {
             </AnimatedSection>
           ))}
 
-          {/* 3. 새 프로젝트 추가 버튼 높이도 420px로 고정하여 통일감 부여 */}
+          {/* 3. 새 프로젝트 추가 버튼 높이도 420px로 고정 */}
           {isLoggedIn && (
             <div onClick={addProject} className="h-[420px] border-4 border-dashed border-gray-200 dark:border-gray-700 rounded-2xl flex flex-col items-center justify-center p-12 hover:border-blue-500 hover:bg-blue-50/30 transition-all cursor-pointer group">
               <FaPlus className="text-gray-300 group-hover:text-blue-500 mb-4" size={40} />

@@ -12,7 +12,7 @@ export const ScrollProgress: React.FC = () => {
         className='h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500'
         style={{
           width: `${scrollProgress}%`,
-          transform: `translateZ(0)`, // GPU 가속을 위한 하드웨어 가속 활성화
+          transform: `translateZ(0)`,
         }}
       />
     </div>

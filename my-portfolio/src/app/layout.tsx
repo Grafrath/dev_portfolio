@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   description: "리뉴얼 포트폴리오",
 };
 
-export default function RootLayout({
-  children,
-}: {
+type RootLayoutProps = Readonly<{
   children: React.ReactNode;
-}) {
+}>;
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html 
       lang="ko" 
