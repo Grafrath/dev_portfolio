@@ -31,11 +31,11 @@ export interface IntroItem {
 
 // 2. 실제 데이터
 export const PROFILE = {
-    name: "김이박 라트다",
+    name: "임정도경",
     role: "Front-End Developer",
     summary: "끊임없는 배움으로 정답을 찾아가는 개발자",
     description: [
-        { category: "학력", content: "ㅇㅇ대학교 컴퓨터공학과 졸업", period: "2015.03 - 2021.02" },
+        { category: "학력", content: "인천정보산업고 전산과 졸업", period: "2012.03 - 2015.02" },
         { category: "경력", content: "코리아IT학원 JAVA&Python 빅데이터 분석 AI플랫폼 개발 수료", period: "2025.10 - 2026.04" },
         { category: "경력", content: "쿠팡 본사 민원팀 Lv.3", period: "2021.06 - 2025.04" },
         { category: "주소", content: "인천광역시 미추홀구 문학동" }
