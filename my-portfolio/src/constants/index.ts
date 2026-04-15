@@ -35,6 +35,7 @@ export const PROFILE = {
     role: "Front-End Developer",
     summary: "끊임없는 배움으로 정답을 찾아가는 개발자",
     description: [
+        { category: "학력", content: "학점은행제 컴퓨터공학 학사 취득 예정", period: "2025.04 - 2027.02" },
         { category: "학력", content: "인천정보산업고 전산과 졸업", period: "2012.03 - 2015.02" },
         { category: "경력", content: "코리아IT학원 JAVA&Python 빅데이터 분석 AI플랫폼 개발 수료", period: "2025.10 - 2026.04" },
         { category: "경력", content: "쿠팡 본사 민원팀 Lv.3", period: "2021.06 - 2025.04" },
