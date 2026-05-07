@@ -168,7 +168,6 @@ export const ServicesSection: React.FC = () => {
 
         {/* 인증 섹션 (수정 없음) */}
         <div className="flex flex-col items-center justify-center mt-10 space-y-6">
-          {/* ... 기존 인증 코드 동일 ... */}
           {!isLoggedIn ? (
             <button onClick={() => { setShowLoginForm(!showLoginForm); setIsJoinMode(false); }} className="flex items-center gap-3 px-10 py-4 bg-white dark:bg-gray-800 border-2 border-blue-500 text-blue-600 font-bold rounded-full hover:bg-blue-500 hover:text-white transition-all shadow-lg">
               <FaLock /> Admin Mode

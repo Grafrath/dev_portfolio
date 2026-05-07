@@ -120,6 +120,15 @@ export const PROJECTS: Project[] = [
         githubUrl: "https://github.com/Grafrath/Ecommerce_Project"
     },
     {
+        id: "carbon-pcf-saas",
+        title: "Carbon-PCF SaaS (B2B 탄소 발자국 관리 대시보드)",
+        period: "2026.04 - 2026.05",
+        description: "기업의 활동 데이터(전기, 원소재 등)를 기반으로 탄소 배출량을 자동 계산하고 대시보드로 시각화하는 B2B 솔루션 개발. 엑셀 데이터 파싱, 탄소 배출량 환산(소나무 식재량 등), 상세 내역 필터링 및 엑셀 리포트 추출 기능을 구현함.",
+        learnings: "비즈니스 로직(탄소 계산)과 UI 상태 관리를 커스텀 훅으로 철저히 분리하여 컴포넌트 모듈화를 실천함. 대용량 엑셀 처리 시 클라이언트 사이드 파싱을 도입해 서버 부하를 줄이고, 데이터 무결성을 위해 매칭 실패 시 전체 트랜잭션 롤백 정책을 적용하는 등 아키텍처 수준의 트레이드오프(Trade-off)를 경험함. 추가로 Docker Compose를 활용해 명령어 한 줄로 프론트, 백엔드, DB가 연동되는 Zero-config 인프라 환경 구축 역량을 키움.",
+        techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL', 'Docker'],
+        githubUrl: "https://github.com/Grafrath/carbon-pcf-saas"
+    },
+    {
         id: "coming-soon",
         title: "준비 중",
         period: "예정",
